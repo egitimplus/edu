@@ -2,16 +2,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    {% block page_head %}
-    <title>Portal - Bootstrap 5 Admin Dashboard Template For Developers</title>
+
+    <title>{% block head_title %}LMS{% endblock %}</title>
 
     <!-- Meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta name="description" content="Portal - Bootstrap 5 Admin Dashboard Template For Developers">
-    <meta name="author" content="Xiaoying Riley at 3rd Wave Media">
+    <meta name="description" content="{% block head_description %}LMS{% endblock %}">
+    <meta name="author" content="Emre Cevik">
     <link rel="shortcut icon" href="{% static 'portal/assets/favicon.ico' %}">
 
     <!-- FontAwesome JS-->
@@ -19,7 +18,7 @@
 
     <!-- App CSS -->
     <link id="theme-style" rel="stylesheet" href="{% static 'portal/assets/css/portal.css' %}">
-    {% endblock %}
+
 </head>
 
 <body class="app">
@@ -32,10 +31,13 @@
 
     <!-- app-wrapper start -->
     <div class="app-wrapper">
-
-        {% block page_content %}
-            {% include "portal/layout/content.html" %}
-        {% endblock %}
+        <div class="app-content pt-3 p-md-3 p-lg-4">
+		    <div class="container-xl">
+            {% block page_content %}
+                {% include "portal/layout/content.html" %}
+            {% endblock %}
+		    </div><!--//container-fluid-->
+	    </div>
 
         {% block page_footer %}
         {% include "portal/layout/footer.html" %}
